@@ -122,12 +122,6 @@ def loadFile(filename, target, solver="gsl", merge=True):
         newTarget = target + "-" + str(num)
         num = num + 1
     target = newTarget
-    istext = True
-    with open(filename, 'rb') as infile:
-        istext = mtypes.istextfile(infile)
-    if not istext:
-        print 'Cannot handle any binary formats yet'
-        return None
     parent, child = posixpath.split(target)
     p = moose.Neutral(parent)
     if not merge and p.path != '/':
